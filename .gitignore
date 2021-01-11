@@ -147,3 +147,6 @@ media/*
 
 # pyCharm
 .idea/*
+
+# Dataset csv
+PS_2021.01.08_12.13.30.csv
