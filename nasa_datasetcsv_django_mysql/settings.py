@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Extensions - installed with pip3 / requirements.txt
+    'django_extensions',
+
     'planetary_systems.apps.PlanetarySystemsConfig',
 ]
 

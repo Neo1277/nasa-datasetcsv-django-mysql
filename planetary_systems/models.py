@@ -172,7 +172,7 @@ class PlanetarySystem(models.Model):
 
     row_updated_on = models.DateTimeField(
         auto_now=True,
-        help_text="Date and time when the register was created updated"
+        help_text="Date and time when the register was updated"
     )
 
 class SpectralType(models.Model):
@@ -194,7 +194,7 @@ class SpectralType(models.Model):
 
     row_updated_on = models.DateTimeField(
         auto_now=True,
-        help_text="Date and time when the register was created updated"
+        help_text="Date and time when the register was updated"
     )
 
 class Star(models.Model):
@@ -397,12 +397,14 @@ class Star(models.Model):
         null=True
     )
 
+    # Foreign key field
     planetary_system = models.ForeignKey(
         PlanetarySystem,
         on_delete=models.CASCADE,
         related_name='star_planetary_system'
     )
 
+    # Foreign key field
     spectral_type = models.ForeignKey(
         SpectralType,
         on_delete=models.CASCADE,
@@ -416,9 +418,8 @@ class Star(models.Model):
 
     row_updated_on = models.DateTimeField(
         auto_now=True,
-        help_text="Date and time when the register was created updated"
+        help_text="Date and time when the register was updated"
     )
-
 
 class DiscoveryMethod(models.Model):
 
@@ -439,9 +440,8 @@ class DiscoveryMethod(models.Model):
 
     row_updated_on = models.DateTimeField(
         auto_now=True,
-        help_text="Date and time when the register was created updated"
+        help_text="Date and time when the register was updated"
     )
-
 
 class DiscoveryFacility(models.Model):
 
@@ -462,7 +462,7 @@ class DiscoveryFacility(models.Model):
 
     row_updated_on = models.DateTimeField(
         auto_now=True,
-        help_text="Date and time when the register was created updated"
+        help_text="Date and time when the register was updated"
     )
 
 class SolutionType(models.Model):
@@ -484,7 +484,7 @@ class SolutionType(models.Model):
 
     row_updated_on = models.DateTimeField(
         auto_now=True,
-        help_text="Date and time when the register was created updated"
+        help_text="Date and time when the register was updated"
     )
 
 class Planet(models.Model):
@@ -820,24 +820,28 @@ class Planet(models.Model):
         auto_now_add=False
     )
 
+    # Foreign key field
     planetary_system = models.ForeignKey(
         PlanetarySystem,
         on_delete=models.CASCADE,
         related_name='planet_planetary_system'
     )
 
+    # Foreign key field
     discovery_method = models.ForeignKey(
         DiscoveryMethod,
         on_delete=models.CASCADE,
         related_name='planet_discovery_method'
     )
 
+    # Foreign key field
     discovery_facility = models.ForeignKey(
         DiscoveryFacility,
         on_delete=models.CASCADE,
         related_name='planet_discovery_facility'
     )
 
+    # Foreign key field
     solution_type = models.ForeignKey(
         SolutionType,
         on_delete=models.CASCADE,
@@ -851,5 +855,5 @@ class Planet(models.Model):
 
     row_updated_on = models.DateTimeField(
         auto_now=True,
-        help_text="Date and time when the register was created updated"
+        help_text="Date and time when the register was updated"
     )
