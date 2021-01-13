@@ -57,6 +57,18 @@ def run():
         and then save the another table with the id related foreign key.
         """
 
+        index = 0
+        for column in row:
+
+            """
+            If the column is empty set none to be able to save the entire row 
+            with some null columns
+            """
+            if not column:
+                row[index] = None
+                # print(column)
+            index = index + 1
+
         planetary_system, created = PlanetarySystem.objects.get_or_create(
             name = row[1],
             number_of_stars = row[8],
@@ -80,9 +92,14 @@ def run():
             brightness_gaia_magnitude_err2 = row[93],
         )
 
-        spectral_type, created = SpectralType.objects.get_or_create(
-            name=row[55]
-        )
+        # Test if variable is None
+        # Source: https://stackoverflow.com/a/43934358/9655579
+        if row[55] is None:
+            spectral_type = None
+        else:
+            spectral_type, created = SpectralType.objects.get_or_create(
+                name=row[55]
+            )
 
         star, created = Star.objects.get_or_create(
             hd_name = row[3],

@@ -235,25 +235,29 @@ class Star(models.Model):
     # hd_name
     hd_name = models.CharField(
         max_length=255,
-        help_text="Name of the star as given by the Henry Draper Catalog"
+        help_text="Name of the star as given by the Henry Draper Catalog",
+        null=True
     )
 
     # hip_name
     hip_name = models.CharField(
         max_length=255,
-        help_text="Name of the star as given by the Hipparcos Catalog"
+        help_text="Name of the star as given by the Hipparcos Catalog",
+        null=True
     )
 
     # tic_id
     tic_id = models.CharField(
         max_length=255,
-        help_text="Name of the star as given by the TESS Input Catalog"
+        help_text="Name of the star as given by the TESS Input Catalog",
+        null=True
     )
 
     # gaia_id
     gaia_id = models.CharField(
         max_length=255,
-        help_text="Name of the star as given by the Gaia Catalog"
+        help_text="Name of the star as given by the Gaia Catalog",
+        null=True
     )
 
     # st_refname
@@ -408,7 +412,8 @@ class Star(models.Model):
     spectral_type = models.ForeignKey(
         SpectralType,
         on_delete=models.CASCADE,
-        related_name='star_spectral_type'
+        related_name='star_spectral_type',
+        null=True
     )
 
     row_created_on = models.DateTimeField(
@@ -589,7 +594,7 @@ class Planet(models.Model):
     )
 
     # pl_orbperlim
-    orbital_period_limit = models.PositiveSmallIntegerField(
+    orbital_period_limit = models.SmallIntegerField(
         null=True
     )
 
@@ -615,7 +620,9 @@ class Planet(models.Model):
     )
 
     # pl_orbsmaxlim
-    orbit_semi_major_axis_limit = models.PositiveSmallIntegerField()
+    orbit_semi_major_axis_limit = models.PositiveSmallIntegerField(
+        null=True
+    )
 
     # pl_rade
     earth_radius = models.DecimalField(
@@ -809,9 +816,8 @@ class Planet(models.Model):
     )
 
     # pl_pubdate
-    reference_date_publication = models.DateTimeField(
-        auto_now=False,
-        auto_now_add=False
+    reference_date_publication = models.CharField(
+        max_length=25
     )
 
     # releasedate
