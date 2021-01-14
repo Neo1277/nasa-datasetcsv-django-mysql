@@ -32,12 +32,19 @@ def run():
         next(reader)
 
     # Delete all data from tables to insert them again
+
     Planet.objects.all().delete()
+
     Star.objects.all().delete()
+
     SolutionType.objects.all().delete()
+
     DiscoveryFacility.objects.all().delete()
+
     DiscoveryMethod.objects.all().delete()
+
     SpectralType.objects.all().delete()
+
     PlanetarySystem.objects.all().delete()
 
     # Format
@@ -143,37 +150,6 @@ def run():
         solution_type, created = SolutionType.objects.get_or_create(
             name=row[13]
         )
-
-
-        """
-        try:
-            y = int(row[3])
-            lngt=row[4]
-            lttde=row[5]
-            area_h=row[6]
-        except:
-            y = None
-            lngt=0.00
-            lttde=0.00
-            area_h='0.00'
-        y = int(row[3])
-        lngt=row[4]
-        lttde=row[5]
-        area_h=row[6]
-        """
-
-        # if the column is empty set none or 0.00 it depends on the case to let the column be saved in the table
-
-        """
-        if not y:
-            y = None
-        if not lngt:
-            lngt = 0.00
-        if not lttde:
-            lttde= 0.00
-        if not area_h:
-            area_h = 0.00
-        """
 
         planet = Planet(
             name = row[0],

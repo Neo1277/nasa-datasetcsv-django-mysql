@@ -15,28 +15,6 @@ class UnsignedAutoField(models.AutoField):
         return 'INT(10) UNSIGNED ZEROFILL'
 
 class PlanetarySystem(models.Model):
-    """
-    hostname
-    sy_snum
-    sy_pnum
-    sy_refname
-    rastr
-    ra
-    decstr
-    dec
-    sy_dist
-    sy_disterr1
-    sy_disterr2
-    sy_vmag
-    sy_vmagerr1
-    sy_vmagerr2
-    sy_kmag
-    sy_kmagerr1
-    sy_kmagerr2
-    sy_gaiamag
-    sy_gaiamagerr1
-    sy_gaiamagerr2
-    """
 
     id = UnsignedAutoField(
         unique=True,
@@ -198,34 +176,6 @@ class SpectralType(models.Model):
     )
 
 class Star(models.Model):
-    """
-    hd_name
-    hip_name
-    tic_id
-    gaia_id
-    st_refname
-    st_teff
-    st_tefferr1
-    st_tefferr2
-    st_tefflim
-    st_rad
-    st_raderr1
-    st_raderr2	
-    st_radlim
-    st_mass
-    st_masserr1
-    st_masserr2
-    st_masslim
-    st_met
-    st_meterr1
-    st_meterr2
-    st_metlim
-    st_metratio
-    st_logg
-    st_loggerr1
-    st_loggerr2
-    st_logglim
-    """
 
     id = UnsignedAutoField(
         unique=True,
@@ -287,7 +237,7 @@ class Star(models.Model):
     )
 
     # st_tefflim
-    effective_temperature_limit = models.PositiveSmallIntegerField(
+    effective_temperature_limit = models.SmallIntegerField(
         null=True
     )
 
@@ -313,7 +263,7 @@ class Star(models.Model):
     )
 
     # st_radlim
-    radius_limit = models.PositiveSmallIntegerField(
+    radius_limit = models.SmallIntegerField(
         null=True
     )
 
@@ -339,7 +289,7 @@ class Star(models.Model):
     )
 
     # st_masslim
-    mass_limit = models.PositiveSmallIntegerField(
+    mass_limit = models.SmallIntegerField(
         null=True
     )
 
@@ -365,7 +315,7 @@ class Star(models.Model):
     )
 
     # st_metlim
-    measurement_limit = models.PositiveSmallIntegerField(
+    measurement_limit = models.SmallIntegerField(
         null=True
     )
 
@@ -397,7 +347,7 @@ class Star(models.Model):
     )
 
     # st_logglim
-    surface_gravity_limit = models.PositiveSmallIntegerField(
+    surface_gravity_limit = models.SmallIntegerField(
         null=True
     )
 
@@ -493,55 +443,6 @@ class SolutionType(models.Model):
     )
 
 class Planet(models.Model):
-    """
-    pl_name
-    pl_letter
-    default_flag
-    disc_year
-    pl_controv_flag
-    pl_refname
-    pl_orbper
-    pl_orbpererr1
-    pl_orbpererr2
-    pl_orbperlim
-    pl_orbsmax
-    pl_orbsmaxerr1
-    pl_orbsmaxerr2
-    pl_orbsmaxlim
-    pl_rade
-    pl_radeerr1
-    pl_radeerr2
-    pl_radelim
-    pl_radj
-    pl_radjerr1
-    pl_radjerr2
-    pl_radjlim
-    pl_bmasse
-    pl_bmasseerr1
-    pl_bmasseerr2
-    pl_bmasselim
-    pl_bmassj
-    pl_bmassjerr1
-    pl_bmassjerr2
-    pl_bmassjlim
-    pl_bmassprov
-    pl_orbeccen
-    pl_orbeccenerr1
-    pl_orbeccenerr2
-    pl_orbeccenlim
-    pl_insol
-    pl_insolerr1
-    pl_insolerr2
-    pl_insollim
-    pl_eqt
-    pl_eqterr1
-    pl_eqterr2
-    pl_eqtlim
-    ttv_flag
-    rowupdate
-    pl_pubdate
-    releasedate
-    """
 
     id = UnsignedAutoField(
         unique=True,
@@ -620,7 +521,7 @@ class Planet(models.Model):
     )
 
     # pl_orbsmaxlim
-    orbit_semi_major_axis_limit = models.PositiveSmallIntegerField(
+    orbit_semi_major_axis_limit = models.SmallIntegerField(
         null=True
     )
 
@@ -646,7 +547,7 @@ class Planet(models.Model):
     )
 
     # pl_radelim
-    earth_radius_limit = models.PositiveSmallIntegerField(
+    earth_radius_limit = models.SmallIntegerField(
         null=True
     )
 
@@ -672,7 +573,7 @@ class Planet(models.Model):
     )
 
     # pl_radjlim
-    jupiter_radius_limit = models.PositiveSmallIntegerField(
+    jupiter_radius_limit = models.SmallIntegerField(
         null=True
     )
 
@@ -698,7 +599,7 @@ class Planet(models.Model):
     )
 
     # pl_bmasselim
-    earth_mass_limit = models.PositiveSmallIntegerField(
+    earth_mass_limit = models.SmallIntegerField(
         null=True
     )
 
@@ -724,7 +625,7 @@ class Planet(models.Model):
     )
 
     # pl_bmassjlim
-    jupiter_mass_limit = models.PositiveSmallIntegerField(
+    jupiter_mass_limit = models.SmallIntegerField(
         null=True
     )
 
@@ -756,7 +657,7 @@ class Planet(models.Model):
     )
 
     # pl_orbeccenlim
-    eccentricity_limit = models.PositiveSmallIntegerField(
+    eccentricity_limit = models.SmallIntegerField(
         null=True
     )
 
@@ -782,12 +683,12 @@ class Planet(models.Model):
     )
 
     # pl_insollim
-    insolation_flux_limit = models.PositiveSmallIntegerField(
+    insolation_flux_limit = models.SmallIntegerField(
         null=True
     )
 
     # pl_eqt
-    equilibrium_temperature = models.PositiveSmallIntegerField(
+    equilibrium_temperature = models.SmallIntegerField(
         null=True
     )
 
@@ -802,7 +703,7 @@ class Planet(models.Model):
     )
 
     # pl_eqtlim
-    equilibrium_temperature_limit = models.PositiveSmallIntegerField(
+    equilibrium_temperature_limit = models.SmallIntegerField(
         null=True
     )
 
@@ -821,9 +722,8 @@ class Planet(models.Model):
     )
 
     # releasedate
-    release_date = models.DateField(
-        auto_now=False,
-        auto_now_add=False
+    release_date = models.CharField(
+        max_length=25
     )
 
     # Foreign key field

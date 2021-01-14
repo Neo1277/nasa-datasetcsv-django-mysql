@@ -1,0 +1,9 @@
+
+{% block content %}
+    <h2>Planetary systems</h2>
+    <ul>
+        {% for planetary_system in object_list %}
+            <li>{{ planetary_system.name }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
