@@ -2,8 +2,11 @@
 {% block content %}
     <h2>Planetary systems</h2>
     <ul>
-        {% for planetary_system in object_list %}
-            <li>{{ planetary_system.name }}</li>
+        {% for planetary_systems in object_list %}
+            <li>{{ planetary_systems.planetary_system_name }}</li>
+            <li>{{ planetary_systems.planetary_system_number_of_stars }}</li>
+            <li>{{ planetary_systems.planetary_system_number_of_planets }}</li>
+            <li>{{ planetary_systems.planet_id }}</li>
         {% endfor %}
     </ul>
 {% endblock %}
