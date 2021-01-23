@@ -9,7 +9,7 @@ from .models import (
     Planet
 )
 from django.views.generic import CreateView, UpdateView, DeleteView, ListView
-from django.db.models import F
+from django.db.models import F, Count
 
 class PlanetarySystemsListView(ListView):
     """
@@ -23,6 +23,8 @@ class PlanetarySystemsListView(ListView):
         """Return all the planetary systems, with related stars and planets"""
 
         """
+        Denormalizing database
+        
         INNER JOIN, source: 
         https://stackoverflow.com/a/21360352/9655579
         
@@ -31,6 +33,7 @@ class PlanetarySystemsListView(ListView):
         """
 
         planetary_systems = PlanetarySystem.objects.values(
+            'id',
             'name',
             'number_of_stars',
             'number_of_planets',
@@ -52,6 +55,7 @@ class PlanetarySystemsListView(ListView):
             'brightness_gaia_magnitude_err1',
             'brightness_gaia_magnitude_err2',
             'brightness_gaia_magnitude_err2',
+
 
             'star_planetary_system__hd_name',
             'star_planetary_system__hip_name',
@@ -80,7 +84,9 @@ class PlanetarySystemsListView(ListView):
             'star_planetary_system__surface_gravity_err2',
             'star_planetary_system__surface_gravity_limit',
             'star_planetary_system__planetary_system_id',
+
             'star_planetary_system__spectral_type',
+
 
             'planet_planetary_system',
             'planet_planetary_system__name',
@@ -130,10 +136,14 @@ class PlanetarySystemsListView(ListView):
             'planet_planetary_system__date_last_update',
             'planet_planetary_system__reference_date_publication',
             'planet_planetary_system__release_date',
+
             'planet_planetary_system__discovery_method__name',
-            "planet_planetary_system__discovery_facility__name",
-            "planet_planetary_system__solution_type__name"
+            'planet_planetary_system__discovery_facility__name',
+            'planet_planetary_system__solution_type__name'
+
         ).annotate(
+
+            # Set alias for fields
             planetary_system_name=F('name'),
             planetary_system_number_of_stars=F('number_of_stars'),
             planetary_system_number_of_planets=F('number_of_planets'),
@@ -232,9 +242,13 @@ class PlanetarySystemsListView(ListView):
             planet_date_last_update=F('planet_planetary_system__date_last_update'),
             planet_reference_date_publication=F('planet_planetary_system__reference_date_publication'),
             planet_release_date=F('planet_planetary_system__release_date'),
-            planet_discovery_method__name=F('planet_planetary_system__discovery_method__name'),
-            planet_discovery_facility__name=F('planet_planetary_system__discovery_facility__name'),
-            planet_solution_type__name=F('planet_planetary_system__solution_type__name'),
+            planet_discovery_method_name=F('planet_planetary_system__discovery_method__name'),
+            planet_discovery_facility_name=F('planet_planetary_system__discovery_facility__name'),
+            planet_solution_type_name=F('planet_planetary_system__solution_type__name'),
+
+            # Group by to remove duplicated rows from query
+            # https://stackoverflow.com/a/45547675/9655579
+            count=Count('planet_id')
         )
 
         return planetary_systems

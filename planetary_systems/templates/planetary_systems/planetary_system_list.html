@@ -1,12 +1,222 @@
+{% extends "base_bootstrap.html" %}
 
 {% block content %}
     <h2>Planetary systems</h2>
-    <ul>
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="row">Planetary system name</th>
+          <th scope="row">Planetary system number of stars</th>
+          <th scope="row">Planetary system number of planets</th>
+          <th scope="row">Planetary system publication reference</th>
+          <th scope="row">Planetary system right ascension sexagesimal</th>
+          <th scope="row">Planetary system right ascension decimal</th>
+          <th scope="row">Planetary system declination sexagesimal</th>
+          <th scope="row">Planetary system declination decimal</th>
+          <th scope="row">Planetary system distance</th>
+          <th scope="row">Planetary system distance err1</th>
+          <th scope="row">Planetary system distance err2</th>
+          <th scope="row">Planetary system brightness v magnitude</th>
+          <th scope="row">Planetary system brightness v magnitude err1</th>
+          <th scope="row">Planetary system brightness v magnitude err2</th>
+          <th scope="row">Planetary system brightness ks magnitude</th>
+          <th scope="row">Planetary system brightness ks magnitude err1</th>
+          <th scope="row">Planetary system brightness ks magnitude err2</th>
+          <th scope="row">Planetary system brightness gaia magnitude</th>
+          <th scope="row">Planetary system brightness gaia magnitude err1</th>
+          <th scope="row">Planetary system brightness gaia magnitude err2</th>
+
+          <th scope="row">Star hd name</th>
+          <th scope="row">Star hip name</th>
+          <th scope="row">Star tic id</th>
+          <th scope="row">Star gaia id</th>
+          <th scope="row">Star publication reference</th>
+          <th scope="row">Star effective temperature</th>
+          <th scope="row">Star effective temperature err1</th>
+          <th scope="row">Star effective temperature err2</th>
+          <th scope="row">Star effective temperature limit</th>
+          <th scope="row">Star radius</th>
+          <th scope="row">Star radius err1</th>
+          <th scope="row">Star radius err2</th>
+          <th scope="row">Star radius limit</th>
+          <th scope="row">Star mass</th>
+          <th scope="row">Star mass err1</th>
+          <th scope="row">Star mass err2</th>
+          <th scope="row">Star mass limit</th>
+          <th scope="row">Star measurement</th>
+          <th scope="row">Star measurement err1</th>
+          <th scope="row">Star measurement err2</th>
+          <th scope="row">Star measurement limit</th>
+          <th scope="row">Star metallicity ratio</th>
+          <th scope="row">Star surface gravity</th>
+          <th scope="row">Star surface gravity err1</th>
+          <th scope="row">Star surface gravity err2</th>
+          <th scope="row">Star surface gravity limit</th>
+          <th scope="row">Star planetary system id</th>
+          <th scope="row">Star spectral type</th>
+
+          <th scope="row">planet planetary system</th>
+          <th scope="row">Planet name</th>
+          <th scope="row">Planet planet letter</th>
+          <th scope="row">Planet explicit</th>
+          <th scope="row">Planet discovery year</th>
+          <th scope="row">Planet controversial flag</th>
+          <th scope="row">Planet publication reference</th>
+          <th scope="row">Planet orbital period</th>
+          <th scope="row">Planet orbital period err1</th>
+          <th scope="row">Planet orbital period err2</th>
+          <th scope="row">Planet orbital period limit</th>
+          <th scope="row">Planet orbit semi major axis</th>
+          <th scope="row">Planet orbit semi major axis err1</th>
+          <th scope="row">Planet orbit semi major axis err2</th>
+          <th scope="row">Planet orbit semi major axis limit</th>
+          <th scope="row">Planet earth radius</th>
+          <th scope="row">Planet earth radius err1</th>
+          <th scope="row">Planet earth radius err2</th>
+          <th scope="row">Planet earth radius limit</th>
+          <th scope="row">Planet jupiter radius</th>
+          <th scope="row">Planet jupiter radius err1</th>
+          <th scope="row">Planet jupiter radius err2</th>
+          <th scope="row">Planet jupiter radius limit</th>
+          <th scope="row">Planet earth mass</th>
+          <th scope="row">Planet earth mass err1</th>
+          <th scope="row">Planet earth mass err2</th>
+          <th scope="row">Planet earth mass limit</th>
+          <th scope="row">Planet jupiter mass</th>
+          <th scope="row">Planet jupiter mass err1</th>
+          <th scope="row">Planet jupiter mass err2</th>
+          <th scope="row">Planet jupiter mass limit</th>
+          <th scope="row">Planet mass provenance</th>
+          <th scope="row">Planet eccentricity</th>
+          <th scope="row">Planet eccentricity err1</th>
+          <th scope="row">Planet eccentricity err2</th>
+          <th scope="row">Planet eccentricity limit</th>
+          <th scope="row">Planet insolation flux</th>
+          <th scope="row">Planet insolation flux err1</th>
+          <th scope="row">Planet insolation flux err2</th>
+          <th scope="row">Planet insolation flux limit</th>
+          <th scope="row">Planet equilibrium temperature</th>
+          <th scope="row">Planet equilibrium temperature err1</th>
+          <th scope="row">Planet equilibrium temperature err2</th>
+          <th scope="row">Planet equilibrium temperature limit</th>
+          <th scope="row">Planet transit timing variations</th>
+          <th scope="row">Planet date last update</th>
+          <th scope="row">Planet reference date publication</th>
+          <th scope="row">Planet release date</th>
+          <th scope="row">Planet discovery method name</th>
+          <th scope="row">Planet discovery facility name</th>
+          <th scope="row">Planet solution type name</th>
+        </tr>
+      </thead>
+      <tbody>
         {% for planetary_systems in object_list %}
-            <li>{{ planetary_systems.planetary_system_name }}</li>
-            <li>{{ planetary_systems.planetary_system_number_of_stars }}</li>
-            <li>{{ planetary_systems.planetary_system_number_of_planets }}</li>
-            <li>{{ planetary_systems.planet_id }}</li>
+          <tr>
+            <td>{{ planetary_systems.planetary_system_name }}</td>
+            <td>{{ planetary_systems.planetary_system_number_of_stars }}</td>
+            <td>{{ planetary_systems.planetary_system_number_of_planets }}</td>
+            <td>{{ planetary_systems.planetary_system_publication_reference }}</td>
+            <td>{{ planetary_systems.planetary_system_right_ascension_sexagesimal }}</td>
+            <td>{{ planetary_systems.planetary_system_right_ascension_decimal }}</td>
+            <td>{{ planetary_systems.planetary_system_declination_sexagesimal }}</td>
+            <td>{{ planetary_systems.planetary_system_declination_decimal }}</td>
+            <td>{{ planetary_systems.planetary_system_distance }}</td>
+            <td>{{ planetary_systems.planetary_system_distance_err1 }}</td>
+            <td>{{ planetary_systems.planetary_system_distance_err2 }}</td>
+            <td>{{ planetary_systems.planetary_system_brightness_v_magnitude }}</td>
+            <td>{{ planetary_systems.planetary_system_brightness_v_magnitude_err1 }}</td>
+            <td>{{ planetary_systems.planetary_system_brightness_v_magnitude_err2 }}</td>
+            <td>{{ planetary_systems.planetary_system_brightness_ks_magnitude }}</td>
+            <td>{{ planetary_systems.planetary_system_brightness_ks_magnitude_err1 }}</td>
+            <td>{{ planetary_systems.planetary_system_brightness_ks_magnitude_err2 }}</td>
+            <td>{{ planetary_systems.planetary_system_brightness_gaia_magnitude }}</td>
+            <td>{{ planetary_systems.planetary_system_brightness_gaia_magnitude_err1 }}</td>
+            <td>{{ planetary_systems.planetary_system_brightness_gaia_magnitude_err2 }}</td>
+
+            <td>{{ planetary_systems.star_hd_name }}</td>
+            <td>{{ planetary_systems.star_hip_name }}</td>
+            <td>{{ planetary_systems.star_tic_id }}</td>
+            <td>{{ planetary_systems.star_gaia_id }}</td>
+            <td>{{ planetary_systems.star_publication_reference }}</td>
+            <td>{{ planetary_systems.star_effective_temperature }}</td>
+            <td>{{ planetary_systems.star_effective_temperature_err1 }}</td>
+            <td>{{ planetary_systems.star_effective_temperature_err2 }}</td>
+            <td>{{ planetary_systems.star_effective_temperature_limit }}</td>
+            <td>{{ planetary_systems.star_radius }}</td>
+            <td>{{ planetary_systems.star_radius_err1 }}</td>
+            <td>{{ planetary_systems.star_radius_err2 }}</td>
+            <td>{{ planetary_systems.star_radius_limit }}</td>
+            <td>{{ planetary_systems.star_mass }}</td>
+            <td>{{ planetary_systems.star_mass_err1 }}</td>
+            <td>{{ planetary_systems.star_mass_err2 }}</td>
+            <td>{{ planetary_systems.star_mass_limit }}</td>
+            <td>{{ planetary_systems.star_measurement }}</td>
+            <td>{{ planetary_systems.star_measurement_err1 }}</td>
+            <td>{{ planetary_systems.star_measurement_err2 }}</td>
+            <td>{{ planetary_systems.star_measurement_limit }}</td>
+            <td>{{ planetary_systems.star_metallicity_ratio }}</td>
+            <td>{{ planetary_systems.star_surface_gravity }}</td>
+            <td>{{ planetary_systems.star_surface_gravity_err1 }}</td>
+            <td>{{ planetary_systems.star_surface_gravity_err2 }}</td>
+            <td>{{ planetary_systems.star_surface_gravity_limit }}</td>
+            <td>{{ planetary_systems.star_planetary_system_id }}</td>
+            <td>{{ planetary_systems.star_spectral_type }}</td>
+
+            <td>{{ planetary_systems.planet_id }}</td>
+            <td>{{ planetary_systems.planet_name }}</td>
+            <td>{{ planetary_systems.planet_planet_letter }}</td>
+            <td>{{ planetary_systems.planet_explicit }}</td>
+            <td>{{ planetary_systems.planet_discovery_year }}</td>
+            <td>{{ planetary_systems.planet_controversial_flag }}</td>
+            <td>{{ planetary_systems.planet_publication_reference }}</td>
+            <td>{{ planetary_systems.planet_orbital_period }}</td>
+            <td>{{ planetary_systems.planet_orbital_period_err1 }}</td>
+            <td>{{ planetary_systems.planet_orbital_period_err2 }}</td>
+            <td>{{ planetary_systems.planet_orbital_period_limit }}</td>
+            <td>{{ planetary_systems.planet_orbit_semi_major_axis }}</td>
+            <td>{{ planetary_systems.planet_orbit_semi_major_axis_err1 }}</td>
+            <td>{{ planetary_systems.planet_orbit_semi_major_axis_err2 }}</td>
+            <td>{{ planetary_systems.planet_orbit_semi_major_axis_limit }}</td>
+            <td>{{ planetary_systems.planet_earth_radius }}</td>
+            <td>{{ planetary_systems.planet_earth_radius_err1 }}</td>
+            <td>{{ planetary_systems.planet_earth_radius_err2 }}</td>
+            <td>{{ planetary_systems.planet_earth_radius_limit }}</td>
+            <td>{{ planetary_systems.planet_jupiter_radius }}</td>
+            <td>{{ planetary_systems.planet_jupiter_radius_err1 }}</td>
+            <td>{{ planetary_systems.planet_jupiter_radius_err2 }}</td>
+            <td>{{ planetary_systems.planet_jupiter_radius_limit }}</td>
+            <td>{{ planetary_systems.planet_earth_mass }}</td>
+            <td>{{ planetary_systems.planet_earth_mass_err1 }}</td>
+            <td>{{ planetary_systems.planet_earth_mass_err2 }}</td>
+            <td>{{ planetary_systems.planet_earth_mass_limit }}</td>
+            <td>{{ planetary_systems.planet_jupiter_mass }}</td>
+            <td>{{ planetary_systems.planet_jupiter_mass_err1 }}</td>
+            <td>{{ planetary_systems.planet_jupiter_mass_err2 }}</td>
+            <td>{{ planetary_systems.planet_jupiter_mass_limit }}</td>
+            <td>{{ planetary_systems.planet_mass_provenance }}</td>
+            <td>{{ planetary_systems.planet_eccentricity }}</td>
+            <td>{{ planetary_systems.planet_eccentricity_err1 }}</td>
+            <td>{{ planetary_systems.planet_eccentricity_err2 }}</td>
+            <td>{{ planetary_systems.planet_eccentricity_limit }}</td>
+            <td>{{ planetary_systems.planet_insolation_flux }}</td>
+            <td>{{ planetary_systems.planet_insolation_flux_err1 }}</td>
+            <td>{{ planetary_systems.planet_insolation_flux_err2 }}</td>
+            <td>{{ planetary_systems.planet_insolation_flux_limit }}</td>
+            <td>{{ planetary_systems.planet_equilibrium_temperature }}</td>
+            <td>{{ planetary_systems.planet_equilibrium_temperature_err1 }}</td>
+            <td>{{ planetary_systems.planet_equilibrium_temperature_err2 }}</td>
+            <td>{{ planetary_systems.planet_equilibrium_temperature_limit }}</td>
+            <td>{{ planetary_systems.planet_transit_timing_variations }}</td>
+            <td>{{ planetary_systems.planet_date_last_update }}</td>
+            <td>{{ planetary_systems.planet_reference_date_publication }}</td>
+            <td>{{ planetary_systems.planet_release_date }}</td>
+            <td>{{ planetary_systems.planet_discovery_method_name }}</td>
+            <td>{{ planetary_systems.planet_discovery_facility_name }}</td>
+            <td>{{ planetary_systems.planet_solution_type_name }}</td>
+
+
+
+          </tr>
         {% endfor %}
-    </ul>
+      </tbody>
+    </table>
 {% endblock %}
